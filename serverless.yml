@@ -1,0 +1,25 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: aks4u
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: aks4u
+service: node-crud-app
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1 # Change this to your preferred region
+  memorySize: 128
+  timeout: 10
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
