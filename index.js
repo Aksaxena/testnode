@@ -29,6 +29,10 @@ app.get('/read/:id', (req, res) => {
   }
 });
 
+app.get('/test', (req, res) => {
+  res.status(200).send('App is working fine.');
+});
+
 // Update operation
 app.put('/update/:id', (req, res) => {
   const data = readDataFromFile();
